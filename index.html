@@ -25,7 +25,15 @@
             const username = 'dmickelson';
             const projectsList = document.getElementById('projects-list');
             const aboutSection = document.getElementById('about-section');
-            
+
+            // Fetch and display About.md content
+            fetch('https://api.github.com/users/${username}/About.md')
+                .then(response => response.text())
+                .then(markdown => {
+                    aboutSection.innerHTML = marked.parse(markdown);
+                })
+                .catch(error => console.error('Error fetching About.md:', error));
+        
             // Fetch and display GitHub projects
             fetch(`https://api.github.com/users/${username}/repos`)
                 .then(response => response.json())
