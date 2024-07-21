@@ -13,9 +13,35 @@
             <p>AI Engineering Manager</p>
         </header>
         <section>
-            <h2>Welcome</h2>
+            <h1>Welcome</h1>
             <p>Welcome to my professional page. Here you can learn more about my background, skills, and experience in AI and software engineering.</p>
         </section>
+        <h1>My GitHub Pages Projects</h1>
+        <div id="projects-list"></div>
+    
+        <script>
+            const username = 'YOUR_GITHUB_USERNAME';
+            const projectsList = document.getElementById('projects-list');
+    
+            fetch(`https://api.github.com/users/${username}/repos`)
+                .then(response => response.json())
+                .then(repos => {
+                    repos.forEach(repo => {
+                        if (repo.has_pages) {
+                            const projectLink = document.createElement('a');
+                            projectLink.href = `https://${username}.github.io/${repo.name}`;
+                            projectLink.textContent = repo.name;
+                            
+                            const projectItem = document.createElement('div');
+                            projectItem.appendChild(projectLink);
+                            
+                            projectsList.appendChild(projectItem);
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching repos:', error));
+        </script>
+        
         <footer class="my-4">
             <p>Contact: <a href="mailto:davidpmickelson@gmail.com">davidpmickelson@gmail.com</a> | Phone: 978-968-5154</p>
         </footer>
