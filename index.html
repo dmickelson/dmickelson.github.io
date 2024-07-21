@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Mickelson - AI Engineering Manager</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
 </head>
 <body>
     <div class="container">
@@ -26,8 +25,8 @@
             const projectsList = document.getElementById('projects-list');
             const aboutSection = document.getElementById('about-section');
             
-        // Fetch and display About.md content
-            fetch('About.md')
+            // Fetch and display About.md content
+            fetch('about.md')
                 .then(response => response.text())
                 .then(markdown => {
                     aboutSection.innerHTML = marked.parse(markdown);
