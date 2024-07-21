@@ -27,7 +27,7 @@
             const aboutSection = document.getElementById('about-section');
 
             // Fetch and display About.md content
-            fetch('https://github.com/${username}/About.md')
+            fetch(`https://raw.githubusercontent.com/${username}/${username}.github.io/main/About.md`)
                 .then(response => response.text())
                 .then(markdown => {
                     aboutSection.innerHTML = marked.parse(markdown);
