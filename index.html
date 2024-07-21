@@ -24,7 +24,9 @@
         <script>
             const username = 'dmickelson';
             const projectsList = document.getElementById('projects-list');
-            // Fetch and display About.md content
+            const aboutSection = document.getElementById('about-section');
+            
+        // Fetch and display About.md content
             fetch('About.md')
                 .then(response => response.text())
                 .then(markdown => {
