@@ -26,7 +26,7 @@
             const projectsList = document.getElementById('projects-list');
             const aboutSection = document.getElementById('about-section');
 
-            / Fetch and display About.md content
+            // Fetch and display About.md content
         fetch(`https://raw.githubusercontent.com/${username}/${username}.github.io/main/About.md`)
             .then(response => response.text())
             .then(markdown => {
